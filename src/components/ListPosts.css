@@ -1,0 +1,15 @@
+@media (max-width:  768px) {
+    .responsive {
+        max-width: 450px;
+    }
+  }
+
+
+.list {
+    max-width: 1024px;
+}
+
+.post-title {
+    font-size: 24px;
+    color: #666;
+}
