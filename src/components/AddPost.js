@@ -20,7 +20,7 @@ function AddPost() {
       uploadData.append("file", image);
 
       const response = await axios.post(
-        `http://localhost:5000/upload`,
+        `${process.env.REACT_APP_SERVER_HOSTNAME}/upload`,
         uploadData
       );
       const body = {
@@ -29,7 +29,7 @@ function AddPost() {
         imageUrl: response.data.fileUrl,
       };
 
-      await axios.post(`http://localhost:5000/post`, body, {
+      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/post`, body, {
         withCredentials: true,
       });
       history.push("/");
@@ -40,7 +40,7 @@ function AddPost() {
         imageUrl: externalImage,
       };
 
-      await axios.post(`http://localhost:5000/post`, body, {
+      await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/post`, body, {
         withCredentials: true,
       });
       history.push("/");

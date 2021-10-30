@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     async function checkLoggedIn() {
-      const response = await axios.get(`http://localhost:5000/isloggedin`, {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_HOSTNAME}/isloggedin`, {
         withCredentials: true,
       });
       console.log(response);
@@ -69,7 +69,7 @@ function App() {
           <Route exact path="/login-google" render={
             () => {
               window.location.href = 
-              `http://localhost:5000/auth/google`
+              `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
             }
           }/>
         </Switch>
