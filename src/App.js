@@ -52,12 +52,12 @@ function App() {
           <Route exact path={["/", "/posts"]} render={(props)=> {
             return <ListPosts {...props} searchValue={searchValue}/>
           }} />
-          <PrivateRoute exact path="/user-posts" render={(props)=> {
+          <Route exact path="/user-posts" render={(props)=> {
             return <UserPosts {...props} searchValue={searchValue}/>
           }} />
-          <PrivateRoute exact path="/posts/add" component={AddPost} />
+          <Route exact path="/posts/add" component={AddPost} />
           <Route exact path="/posts/:id" component={PostDetails} />
-          <PrivateRoute exact path="/posts/:id/edit" component={EditPost} />
+          <Route exact path="/posts/:id/edit" component={EditPost} />
           <Route exact path="/signup" component={Signup} />
           <Route
             exact
