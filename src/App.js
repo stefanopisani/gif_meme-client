@@ -52,10 +52,10 @@ function App() {
           <Route exact path={["/", "/posts"]} render={(props)=> {
             return <ListPosts {...props} searchValue={searchValue}/>
           }} />
-          <Route exact path={"/user-posts"} render={(props)=> {
+          <Route exact path="/user-posts" render={(props)=> {
             return <UserPosts {...props} searchValue={searchValue}/>
           }} />
-          <Route path="/posts/add" component={AddPost} />
+          <Route exact path="/posts/add" component={AddPost} />
           <Route exact path="/posts/:id" component={PostDetails} />
           <PrivateRoute exact path="/posts/:id/edit" component={EditPost} />
           <Route exact path="/signup" component={Signup} />
@@ -66,12 +66,12 @@ function App() {
               return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
             }}
           />
-          <Route exact path="/login-google" render={
+          {/* <Route exact path="/login-google" render={
             () => {
               window.location.href = 
               `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
             }
-          }/>
+          }/> */}
         </Switch>
       </div>
       </LoggedUserProvider>
