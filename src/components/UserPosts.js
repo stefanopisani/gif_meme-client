@@ -72,7 +72,7 @@ function UserPosts({ searchValue, match }) {
   return (
     <>
       {loggedInUser && (
-        <p class="my-3">Check out the latest posts {loggedInUser.username}</p>
+        <p class="my-3">{loggedInUser.username}, here you can see, modify and delete your posts </p>
       )}
 
       <div class="btn-group" role="group" aria-label="Basic outlined example">
