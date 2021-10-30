@@ -49,16 +49,6 @@ function App() {
       />
       <div className="App" style={{maxWidth:"1024px", margin:"auto", minHeight:"80vh"}}>
         <Switch>
-          <Route exact path={["/", "/posts"]} render={(props)=> {
-            return <ListPosts {...props} searchValue={searchValue}/>
-          }} />
-          <Route exact path="/user-posts" render={(props)=> {
-            return <UserPosts {...props} searchValue={searchValue}/>
-          }} />
-          <Route exact path="/posts/add" component={AddPost} />
-          <Route exact path="/posts/:id" component={PostDetails} />
-          <Route exact path="/posts/:id/edit" component={EditPost} />
-          <Route exact path="/signup" component={Signup} />
           <Route
             exact
             path="/login"
@@ -66,6 +56,18 @@ function App() {
               return <Login setCurrentLoggedInUser={setCurrentLoggedInUser} />;
             }}
           />
+          <Route exact path="/signup" component={Signup} />
+
+          
+          <Route exact path={["/", "/posts"]} render={(props)=> {
+            return <ListPosts {...props} searchValue={searchValue}/>
+          }} />
+          <PrivateRoute exact path="/user-posts" render={(props)=> {
+            return <UserPosts {...props} searchValue={searchValue}/>
+          }} />
+          <PrivateRoute exact path="/posts/add" component={AddPost} />
+          <Route exact path="/posts/:id" component={PostDetails} />
+          <Route exact path="/posts/:id/edit" component={EditPost} />
           {/* <Route exact path="/login-google" render={
             () => {
               window.location.href = 
