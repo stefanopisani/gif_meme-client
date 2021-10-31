@@ -163,7 +163,7 @@ function PostDetails({ match }) {
   useEffect(() => {
     async function getPostDetails() {
       const response = await axios.get(
-        `http://localhost:5000/posts/${match.params.id}`
+        `${process.env.REACT_APP_SERVER_HOSTNAME}/posts/${match.params.id}`
       );
       setPost(response.data);
       console.log(response.data);
@@ -183,7 +183,7 @@ function PostDetails({ match }) {
   }
 
   const handleDeletePost = async (id) => {
-    await axios.delete(`http://localhost:5000/posts/${id}`);
+    await axios.delete(`${process.env.REACT_APP_SERVER_HOSTNAME}/posts/${id}`);
     history.push("/");
   };
 
