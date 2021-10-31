@@ -55,7 +55,7 @@ const handleFormSubmit = async (e)=> {
         </div>
 
 
-        <button type="submit" className="btn btn-outline-info">Sign up</button>
+        <button type="submit" className="btn btn-outline-info">Login</button>
         </form>
         <p>Already have an account? login <NavLink to="/login">here</NavLink></p>
         </>

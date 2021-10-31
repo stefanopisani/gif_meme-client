@@ -66,7 +66,7 @@ function Login({ setCurrentLoggedInUser }) {
         </div>
 
 
-        <button type="submit" className="btn btn-outline-info">Sign up</button>
+        <button type="submit" className="btn btn-outline-info">Login</button>
         </form>
       <p>Don't have an account? register <NavLink to="/signup">here</NavLink></p>
     </>
