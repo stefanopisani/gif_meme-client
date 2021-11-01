@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import { LoggedUserConsumer } from "../context/loggedUser";
+import { toast } from "react-toastify";
 
 function UserPosts({ searchValue, match }) {
   const [showGif, setShowGif] = useState(true);
@@ -15,6 +16,7 @@ function UserPosts({ searchValue, match }) {
   const handleDeletePost = async (id) => {
     await axios.delete(`${process.env.REACT_APP_SERVER_HOSTNAME}/posts/${id}`);
     history.push("/");
+    toast.warning("Post deleted ❌");
   };
 
   useEffect(() => {

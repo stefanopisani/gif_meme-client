@@ -15,7 +15,7 @@ const handleFormSubmit = async (e)=> {
         password
     };
     await axios.post(`${process.env.REACT_APP_SERVER_HOSTNAME}/signup`, body);
-    toast.success("signup success");
+    toast(`Account created ${username}, now it's time to login ❤️`);
     history.push("/")
 }
 

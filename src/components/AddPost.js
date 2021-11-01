@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import GifPicker from "gifpicker";
 import "gifpicker/dist/style.css";
+import { toast } from "react-toastify";
 
 function AddPost() {
   const [title, setTitle] = useState("");
@@ -32,6 +33,7 @@ function AddPost() {
         withCredentials: true,
       });
       history.push("/");
+      toast('Thank you for sharing with our community 🙏🏻')
     } else {
       const body = {
         title,
@@ -43,6 +45,7 @@ function AddPost() {
         withCredentials: true,
       });
       history.push("/");
+      toast('Thank you for sharing with our community 🙏🏻')
     }
   };
 
