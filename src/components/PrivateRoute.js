@@ -10,7 +10,7 @@ function PrivateRoute({ component, ...options }) {
   useEffect(() => {
     async function checkLoggedIn() {
       const response = await axios.get(
-        `${process.env.REACT_APP_SERVER_HOSTNAME}`,
+        `${process.env.REACT_APP_SERVER_HOSTNAME}/isloggedin`,
         {
           withCredentials: true,
         }
