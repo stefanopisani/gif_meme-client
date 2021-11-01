@@ -1,10 +1,33 @@
-import { useContext } from "react";
+import {  useEffect, useState } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { LoggedUserConsumer } from "../context/loggedUser";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 function PrivateRoute({ component, ...options }) {
-  const loggedInUser = useContext(LoggedUserConsumer);
-  return loggedInUser ? (
+  const [loggedInUser, setLoggedInUser] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function checkLoggedIn() {
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_HOSTNAME}`, {
+        withCredentials: true,
+      });
+      console.log(response.data._id);
+      if (response.data._id) {
+        setLoggedInUser(true);
+        setIsLoading(false);
+      } else {
+        setLoggedInUser(false);
+        setIsLoading(false);
+        toast.warning('You need to login to proceed❗️❗️❗️')
+      }
+    }
+    checkLoggedIn();
+    console.log({isLoading, loggedInUser});
+  }, []);
+
+
+  return isLoading ? null : loggedInUser ? (
     <Route {...options} component={component} />
   ) : (
     <Redirect to="/login" />

@@ -62,18 +62,13 @@ function App() {
           <Route exact path={["/", "/posts"]} render={(props)=> {
             return <ListPosts {...props} searchValue={searchValue}/>
           }} />
-          <Route exact path="/user-posts" render={(props)=> {
+          <PrivateRoute exact path="/user-posts" render={(props)=> {
             return <UserPosts {...props} searchValue={searchValue}/>
           }} />
-          <Route exact path="/posts/add" component={AddPost} />
-          <Route exact path="/posts/:id" component={PostDetails} />
-          <Route exact path="/posts/:id/edit" component={EditPost} />
-          {/* <Route exact path="/login-google" render={
-            () => {
-              window.location.href = 
-              `${process.env.REACT_APP_SERVER_HOSTNAME}/auth/google`
-            }
-          }/> */}
+          <PrivateRoute exact path="/posts/add" component={AddPost} />
+          <PrivateRoute exact path="/posts/:id" component={PostDetails} />
+          <PrivateRoute exact path="/posts/:id/edit" component={EditPost} />
+          
         </Switch>
       </div>
       </LoggedUserProvider>

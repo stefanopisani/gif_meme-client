@@ -6,7 +6,6 @@ import "gifpicker/dist/style.css";
 
 function AddPost() {
   const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
   const [externalImage, setExternalImage] = useState("");
   const [image, setImage] = useState("");
